@@ -1,0 +1,45 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build application
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Publish application
+        run: |
+          dotnet publish --configuration Release --output ./publish \
+            --no-restore
+
+      - name: Archive application
+        run: tar -czvf console-app.tar.gz -C ./publish .
+
+      - name: Upload to Azure Blob Storage
+        uses: azure/CLI@v1
+        env:
+          AZURE_STORAGE_ACCOUNT_KEY: ${{ secrets.AZURE_STORAGE_ACCOUNT_KEY }}
+        with:
+          inlineScript: |
+            az storage blob upload --account-name actionsdemo \
+              --container-name console-app --name csharp-console-app \
+              --file console-app.tar.gz --auth-mode key \
+              --account-key $AZURE_STORAGE_ACCOUNT_KEY
