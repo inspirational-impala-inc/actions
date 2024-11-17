@@ -3,15 +3,21 @@
 This is a simple .NET Application designed to show different applications of GitHub Actions
 
 ## Application 1: CI
+
 ### Applicable workflow
+
 [Continuous Integration](.github/workflows/cd.yml)
 
 ## Application 2: CD
+
 ### Applicable workflow
+
 [Continuous Deployment](.github/workflows/cd.yml)
 
 ## Application 3: Publish package
+
 ### Applicable workflow
+
 [Publish Package](.github/workflows/publish-package.yml)
 
 ### Publishing a new package version
@@ -22,5 +28,7 @@ This is a simple .NET Application designed to show different applications of Git
 4. Run the `Publish Package` workflow.
 
 ## Application 4: Connect to Azure via OIDC
+
 ### Applicable workflow
-[Run Azure CLI Login with OpenID Connect](.github/workflows/oidc.yml)
+
+[Log into Azure with OpenID Connect](.github/workflows/oidc.yml)
