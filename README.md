@@ -2,25 +2,18 @@
 
 This is a simple .NET Application designed to show different applications of GitHub Actions
 
-## Application 1: CI
-### Applicable workflow
-[Continuous Integration](.github/workflows/cd.yml)
+## Applications and Workflows
 
-## Application 2: CD
-### Applicable workflow
-[Continuous Deployment](.github/workflows/cd.yml)
+| Application               | Workflow                                                         | Status                                                                                                                         |
+| ------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Continuous Integration    | [Continuous Integration](.github/workflows/ci.yml)               | ![CI](https://github.com/inspirational-impala-inc/dotnet-package/actions/workflows/ci.yml/badge.svg)                           |
+| Continuous Deployment     | [Continuous Deployment](.github/workflows/cd.yml)                | ![CD](https://github.com/inspirational-impala-inc/dotnet-package/actions/workflows/cd.yml/badge.svg)                           |
+| Publish package           | [Publish Package](.github/workflows/publish-package.yml)         | ![Publish Package](https://github.com/inspirational-impala-inc/dotnet-package/actions/workflows/publish-package.yml/badge.svg) |
+| Connect to Azure via OIDC | [Log into Azure with OpenID Connect](.github/workflows/oidc.yml) | ![OIDC](https://github.com/inspirational-impala-inc/dotnet-package/actions/workflows/oidc.yml/badge.svg)                       |
 
-## Application 3: Publish package
-### Applicable workflow
-[Publish Package](.github/workflows/publish-package.yml)
-
-### Publishing a new package version
+## Publishing new package versions
 
 1. Create a new branch.
 2. Bump the version in the `dotnet-package.csproj` file.
 3. Push the branch to the server.
 4. Run the `Publish Package` workflow.
-
-## Application 4: Connect to Azure via OIDC
-### Applicable workflow
-[Run Azure CLI Login with OpenID Connect](.github/workflows/oidc.yml)
