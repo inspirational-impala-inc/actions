@@ -1,18 +1,26 @@
-# Hello World for Packages
+# Actions Demo Repo
 
-This is a simple .NET Application designed to test publishing packages to the
-GitHub NuGet Registry.
+This is a simple .NET Application designed to show different applications of GitHub Actions
 
-# Scopes
+## Application 1: CI
+### Applicable workflow
+[Continuous Integration](.github/workflows/cd.yml)
 
-The scopes used for the personal access token in the `publish.yml` workflow are:
+## Application 2: CD
+### Applicable workflow
+[Continuous Deployment](.github/workflows/cd.yml)
 
-- `write: packages`
-- `read: packages`
+## Application 3: Publish package
+### Applicable workflow
+[Publish Package](.github/workflows/publish-package.yml)
 
-# Publishing a new package version
+### Publishing a new package version
 
 1. Create a new branch.
 2. Bump the version in the `dotnet-package.csproj` file.
 3. Push the branch to the server.
 4. Run the `Publish Package` workflow.
+
+## Application 4: Connect to Azure via OIDC
+### Applicable workflow
+[Run Azure CLI Login with OpenID Connect](.github/workflows/oidc.yml)
