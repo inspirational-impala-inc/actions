@@ -33,6 +33,10 @@ jobs:
       - name: Archive application
         run: tar -czvf console-app.tar.gz -C ./publish .
 
+      - name: Generate random number
+        id: random
+        run: echo "::set-output name=number::$(shuf -i 1000-9999 -n 1)"
+
       - name: Upload to Azure Blob Storage
         uses: azure/CLI@v1
         env:
@@ -40,6 +44,7 @@ jobs:
         with:
           inlineScript: |
             az storage blob upload --account-name actionsdemo \
-              --container-name console-app --name csharp-console-app \
+              --container-name console-app \
+              --name csharp-console-app-${{ steps.random.outputs.number }} \
               --file console-app.tar.gz --auth-mode key \
               --account-key $AZURE_STORAGE_ACCOUNT_KEY
