@@ -10,6 +10,7 @@ This is a simple .NET Application designed to show different applications of Git
 | Continuous Deployment     | [Continuous Deployment](.github/workflows/cd.yml)                | ![CD](https://github.com/inspirational-impala-inc/dotnet-package/actions/workflows/cd.yml/badge.svg)                           |
 | Publish package           | [Publish Package](.github/workflows/publish-package.yml)         | ![Publish Package](https://github.com/inspirational-impala-inc/dotnet-package/actions/workflows/publish-package.yml/badge.svg) |
 | Connect to Azure via OIDC | [Log into Azure with OpenID Connect](.github/workflows/oidc.yml) | ![OIDC](https://github.com/inspirational-impala-inc/dotnet-package/actions/workflows/oidc.yml/badge.svg)                       |
+| Call Reusable Workflow    | [Call Reusable Workflow](.github/workflows/call-reusable.yml)    | ![Reusable Workflow](https://github.com/inspirational-impala-inc/dotnet-package/actions/workflows/call-reusable.yml/badge.svg) |
 
 ## Publishing new package versions
 
