@@ -5,6 +5,7 @@ on:
 
 jobs:
   publish:
+    name: Publish Package
     runs-on: ubuntu-latest
 
     steps:
