@@ -6,7 +6,8 @@ permissions:
   id-token: write # Require write permission to Fetch an OIDC token.
 
 jobs:
-  test:
+  login:
+    name: Log into Azure with OpenID Connect
     runs-on: ubuntu-latest
     environment: production
     steps:
