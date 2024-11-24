@@ -19,4 +19,8 @@
     <RepositoryUrl>https://github.com/inspirational-impala-inc/dotnet-package</RepositoryUrl>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="calculator" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>
