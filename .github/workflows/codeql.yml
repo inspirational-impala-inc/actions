@@ -10,6 +10,7 @@ jobs:
   analyze:
     name: Analyze (${{ matrix.language }})
     runs-on: "ubuntu-latest"
+    environment: "security"
 
     permissions:
       security-events: write
