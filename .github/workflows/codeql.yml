@@ -21,7 +21,7 @@ jobs:
       matrix:
         include:
           - language: csharp
-            build-mode: none
+            build-mode: manual
 
     steps:
       - name: Checkout repository
@@ -42,6 +42,9 @@ jobs:
         with:
           languages: ${{ matrix.language }}
           build-mode: ${{ matrix.build-mode }}
+
+      - if: matrix.build-mode == 'manual'
+        run: dotnet build --configuration Release
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
