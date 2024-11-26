@@ -1,15 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more informations// See https://aka.ms/new-console-template for more information
 using System;
-using Calculator;
+using LessleyCalc;
 
 // Example usage of the calculator
-Console.Writes("Enter the first number: ");
+Console.Write("Enter the first number: ");
 int a = int.Parse(Console.ReadLine());
 
 Console.Write("Enter the second number: ");
 int b = int.Parse(Console.ReadLine());
 
-var calc = new Calculator.Calculator();
+var calc = new Calculator();
 int sum = calc.Add(a, b);
 int difference = calc.Subtract(a, b);
 int product = calc.Multiply(a, b);
