@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="calculator" Version="1.0.0" />
+    <PackageReference Include="lessleycalc" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
