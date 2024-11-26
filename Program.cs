@@ -3,11 +3,20 @@ using System;
 using LessleyCalc;
 
 // Example usage of the calculator
-Console.Write("Enter the first number: ");
-int a = int.Parse(Console.ReadLine());
+int GetNumberFromUser(string prompt)
+{
+    Console.Write(prompt);
+    string input = Console.ReadLine();
+    if (string.IsNullOrEmpty(input))
+    {
+        Console.WriteLine("Invalid input. Please enter a valid number.");
+        Environment.Exit(1);
+    }
+    return int.Parse(input);
+}
 
-Console.Write("Enter the second number: ");
-int b = int.Parse(Console.ReadLine());
+int a = GetNumberFromUser("Enter the first number: ");
+int b = GetNumberFromUser("Enter the second number: ");
 
 var calc = new Calculator();
 int sum = calc.Add(a, b);
