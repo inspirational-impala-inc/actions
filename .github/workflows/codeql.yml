@@ -38,6 +38,11 @@ jobs:
           dotnet nuget update source "GitHub" --username ${{ github.actor }} \
             --password ${{ secrets.NUGET_TOKEN }} --store-password-in-clear-text
 
+      - name: Remove nuget.org
+        run: |
+          dotnet nuget list source
+          dotnet nuget remove source "nuget.org"
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
