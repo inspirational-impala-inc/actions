@@ -38,7 +38,11 @@ jobs:
           languages: csharp
           build-mode: manual
 
-      - run: dotnet build --configuration Release
+      - name: Restore dependencies
+        run: nuget restore
+
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
