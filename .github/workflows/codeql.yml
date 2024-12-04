@@ -9,7 +9,7 @@ on:
 jobs:
   analyze:
     name: Analyze C#
-    runs-on: "ubuntu-latest"
+    runs-on: windows-latest
     environment: production
 
     permissions:
@@ -27,19 +27,21 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Add the GitHub NuGet registry password
+        shell: pwsh
         run: |
-          dotnet nuget update source "GitHub" --username ${{ github.actor }} \
+          dotnet nuget update source "GitHub" --username ${{ github.actor }} `
             --password ${{ secrets.NUGET_TOKEN }} --store-password-in-clear-text
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: csharp
-          build-mode: manual
+          build-mode: none
 
-      - run: dotnet build --configuration Release
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3
-        with:
-          category: "/language:csharp"
+      - name: Restore
+        run: dotnet restore --no-dependencies `
+          "D:\a\actions\actions\dotnet-package.sln" `
+          --packages "$env:RUNNER_TEMP\codeql_databases\csharp\working\packages" `
+          /p:DisableImplicitNuGetFallbackFolder=true --verbosity normal `
+          /p:TargetFrameworkRootPath="$env:RUNNER_TEMP\codeql_databases\csharp\working\emptyFakeDotnetRoot" `
+          /p:NetCoreTargetingPackRoot="$env:RUNNER_TEMP\codeql_databases\csharp\working\emptyFakeDotnetRoot"
