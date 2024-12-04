@@ -9,7 +9,7 @@ on:
 jobs:
   analyze:
     name: Analyze C#
-    runs-on: "ubuntu-latest"
+    runs-on: windows-latest
     environment: production
 
     permissions:
@@ -27,8 +27,9 @@ jobs:
           dotnet-version: 8.0.x
 
       - name: Add the GitHub NuGet registry password
+        shell: pwsh
         run: |
-          dotnet nuget update source "GitHub" --username ${{ github.actor }} \
+          dotnet nuget update source "GitHub" --username ${{ github.actor }} `
             --password ${{ secrets.NUGET_TOKEN }} --store-password-in-clear-text
 
       - name: Initialize CodeQL
