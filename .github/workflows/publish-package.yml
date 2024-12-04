@@ -7,7 +7,7 @@ jobs:
   publish:
     name: Publish Package
     runs-on: ubuntu-latest
-
+    environment: production
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
