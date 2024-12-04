@@ -10,7 +10,7 @@ jobs:
   analyze:
     name: Analyze C#
     runs-on: "ubuntu-latest"
-    environment: "security"
+    environment: production
 
     permissions:
       security-events: write
